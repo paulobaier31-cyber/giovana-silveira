@@ -269,6 +269,19 @@ nav a:not(.btn){display:none}nav{gap:0}nav .btn{display:none}.mb{display:block}
 .pf video{border:1px solid rgba(214,199,168,.25);border-radius:0}
 @media(max-width:800px){.pf .portfolio-grid{grid-template-columns:1fr;gap:28px}.pf .portfolio-item video{height:auto;max-height:70vh;aspect-ratio:16/9}.pf .portfolio-feature video{max-height:65vh}}
 
+
+/* Reprodução de vídeo: controles nativos e link direto garantido */
+.gs-video-player{position:relative;width:100%;isolation:isolate}
+.gs-video-player video{width:100%;display:block;position:relative;z-index:1}
+.gs-video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;
+ width:76px;height:76px;border-radius:50%;border:1px solid rgba(244,239,230,.65);
+ background:rgba(74,28,31,.88);color:#F4EFE6;font-size:29px;cursor:pointer;
+ display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px #0005}
+.gs-video-play span{margin-left:5px}
+.gs-video-play:hover{background:#5A6340}
+.gs-video-player.gs-playing .gs-video-play{display:none}
+.gs-video-fallback:not([hidden]){display:block;margin-top:8px;color:#D6C7A8;font-size:13px}
+.gs-video-open{display:inline-flex;align-items:center;justify-content:center;min-height:42px;margin-top:10px;padding:10px 20px;border:1px solid #D6C7A8;color:#F4EFE6;background:#4A1C1F;text-decoration:none;font-size:13px;letter-spacing:.04em;cursor:pointer}.gs-video-open:hover{background:#5A6340}
 </style>
 </head>
 <body>
@@ -339,8 +352,8 @@ nav a:not(.btn){display:none}nav{gap:0}nav .btn{display:none}.mb{display:block}
 
 <section class="ck pf" id="portfolio" aria-labelledby="pf">
 <div class="w"><div class="hd2"><h2 class="t2" id="pf">Experiência que <em>se vê e se ouve.</em></h2><p>Vídeos comerciais e institucionais, apresentação e locução.</p></div>
-<div class="portfolio-feature r"><video controls playsinline preload="metadata" poster="videos/destaque.jpg" aria-label="Vídeo em destaque"><source src="videos/destaque.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.</video><span class="portfolio-label">Vídeo em destaque</span></div>
-<div class="portfolio-grid"><article class="portfolio-item r"><video controls playsinline preload="metadata" poster="videos/institucional.jpg" aria-label="Vídeo Institucional"><source src="videos/institucional.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.</video><h3>Institucional</h3></article><article class="portfolio-item r"><video controls playsinline preload="metadata" poster="videos/comercial.jpg" aria-label="Vídeo Comercial"><source src="videos/comercial.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.</video><h3>Comercial</h3></article><article class="portfolio-item r"><video controls playsinline preload="metadata" poster="videos/locucao.jpg" aria-label="Vídeo Locução"><source src="videos/locucao.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.</video><h3>Locução</h3></article></div>
+<div class="portfolio-feature r"><div class="gs-video-player"><video controls playsinline preload="metadata" webkit-playsinline poster="destaque.jpg" aria-label="Vídeo em destaque"><source src="destaque.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.</video><a class="gs-video-open" href="destaque.mp4" target="_blank" rel="noopener">▶ Assistir vídeo</a></div><span class="portfolio-label">Vídeo em destaque</span></div>
+<div class="portfolio-grid"><article class="portfolio-item r"><div class="gs-video-player"><video controls playsinline preload="metadata" webkit-playsinline poster="institucional.jpg" aria-label="Vídeo Institucional"><source src="institucional.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.</video><a class="gs-video-open" href="institucional.mp4" target="_blank" rel="noopener">▶ Assistir vídeo</a></div><h3>Institucional</h3></article><article class="portfolio-item r"><div class="gs-video-player"><video controls playsinline preload="metadata" webkit-playsinline poster="comercial.jpg" aria-label="Vídeo Comercial"><source src="comercial.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.</video><a class="gs-video-open" href="comercial.mp4" target="_blank" rel="noopener">▶ Assistir vídeo</a></div><h3>Comercial</h3></article><article class="portfolio-item r"><div class="gs-video-player"><video controls playsinline preload="metadata" webkit-playsinline poster="locucao.jpg" aria-label="Vídeo Locução"><source src="locucao.mp4" type="video/mp4">Seu navegador não suporta a reprodução deste vídeo.</video><a class="gs-video-open" href="locucao.mp4" target="_blank" rel="noopener">▶ Assistir vídeo</a></div><h3>Locução</h3></article></div>
 <div class="cta"><a class="btn wa" href="#">Desejo conversar sobre meu projeto</a></div></div>
 </section>
 
@@ -420,5 +433,6 @@ vp.setAttribute("d",k<1?d:"M0 23H600");if(k<1)requestAnimationFrame(f)})(t0)}},{
 vo.observe(vp);
 })();
 </script>
+
 </body>
 </html>
